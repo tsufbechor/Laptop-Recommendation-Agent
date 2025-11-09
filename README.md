@@ -1,6 +1,6 @@
-# Automatiq.ai Product Recommendation Agent
+# Product Recommendation Agent
 
-Deliver a conversational assistant that recommends laptops and workstations from a curated 31-product catalogue. The system combines Retrieval-Augmented Generation (RAG) with Google's Gemini 2.5 Pro to provide grounded answers, multi-turn dialog, and real-time analytics.
+A conversational assistant that recommends laptops and workstations from a curated 31-product catalogue. The system combines Retrieval-Augmented Generation (RAG) with Google's Gemini 2.5 Pro to provide grounded answers, multi-turn dialog, and real-time analytics.
 
 ```
 ┌──────────────────────────┐       ┌───────────────────────────┐
