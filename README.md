@@ -137,8 +137,6 @@ Without an API key, the backend falls back to deterministic hashed embeddings an
 - Authentication & user profiles.
 - Product comparison view / saved carts.
 - Voice input and multimodal recommendations.
-- A/B testing (full catalogue vs. RAG).
-- Automated evaluation suite; unit tests for RAG + metrics, Playwright E2E.
 - CI/CD pipeline with linting, formatting, and contract tests.
 
 ## Repository Structure
