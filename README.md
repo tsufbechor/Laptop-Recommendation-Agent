@@ -101,28 +101,6 @@ Without an API key, the backend falls back to deterministic hashed embeddings an
 - `GET /aggregate` – aggregate statistics across sessions.
 - `GET /export` – CSV download of metrics.
 
-## Frontend Highlights
-
-- `ChatInterface` handles session lifecycle, streaming WebSocket connection, and recommendation rendering.
-- `MessageList` auto-scrolls with streaming chunks; `MessageBubble` styles user vs. agent dialogue.
-- `MetricsDashboard` uses React Query to fetch aggregates, session detail, and supports CSV export.
-- Shared state managed via `ChatContext`; `services/api.ts` centralises REST + WebSocket helpers.
-
-## Monitoring & Metrics
-
-- Latencies (retrieval + LLM) captured for every turn.
-- Recommendations and feedback tracked per session.
-- Aggregate view surfaces total sessions, average turns, latency means, top SKUs, and sentiment ratio.
-- Metrics persisted as JSON under `backend/app/data/metrics` and exportable via CSV.
-
-## Design Decisions
-
-- **RAG + Gemini**: ensures grounded recommendations from a constrained catalogue while leveraging Gemini’s dialog quality.
-- **In-memory vectors**: NumPy cosine similarity keeps retrieval fast for a small catalogue; embeddings cached to disk to avoid regenerating.
-- **Provider abstraction**: `GeminiProvider` implements `LLMProvider`, enabling future provider swaps (e.g., OpenAI, Claude).
-- **Streaming-first UX**: WebSocket streaming mimics modern assistants and keeps the UI responsive.
-- **Offline development**: deterministic hashing for embeddings & heuristic replies allow local testing without external calls.
-
 ## Testing & Sanity Checks
 
 1. Start backend (`uvicorn app.main:app --reload`).
@@ -131,13 +109,6 @@ Without an API key, the backend falls back to deterministic hashed embeddings an
    - Send a prompt; verify assistant responds and “Conversation Insights” counters update.
    - Confirm recommended products appear in sidebar.
 4. Switch to Metrics view; aggregated cards should populate (turn count, latencies, feedback ratio). Select a session to inspect detail.
-
-## Future Extensions
-
-- Authentication & user profiles.
-- Product comparison view / saved carts.
-- Voice input and multimodal recommendations.
-- CI/CD pipeline with linting, formatting, and contract tests.
 
 ## Repository Structure
 
